@@ -1,5 +1,6 @@
 import React from 'react';
 import './UrlCard.css';
+import PropTypes from 'prop-types';
 
 const UrlCard = ({ title, short_url, long_url }) => {
   return (
@@ -12,3 +13,9 @@ const UrlCard = ({ title, short_url, long_url }) => {
 }
 
 export default UrlCard;
+
+UrlCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  short_url: PropTypes.string.isRequired,
+  long_url: PropTypes.string.isRequired,
+}

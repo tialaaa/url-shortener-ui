@@ -1,6 +1,7 @@
 import React from 'react';
 import './UrlContainer.css';
 import UrlCard from '../UrlCard/UrlCard';
+import PropTypes from 'prop-types';
 
 const UrlContainer = urlList => {
   const urlEls = urlList.urls.map(url => {
@@ -23,3 +24,15 @@ const UrlContainer = urlList => {
 }
 
 export default UrlContainer;
+
+UrlContainer.propTypes = {
+  urlList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      key: PropTypes.number.isRequired,
+      long_url: PropTypes.string.isRequired,
+      short_url: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  )
+}

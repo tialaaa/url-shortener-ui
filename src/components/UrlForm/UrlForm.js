@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class UrlForm extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class UrlForm extends Component {
     e.preventDefault();
 
     if (!this.validateInputs()) {
-      // refactor to something more user-friendly than an alert
+      // TO DO: refactor sad path to something more user-friendly than an alert
       return alert('Please fill out all form inputs') 
     };
 
@@ -62,7 +63,7 @@ class UrlForm extends Component {
           onChange={e => this.handleNameChange(e)}
         />
 
-        <button type='submit' onClick={e => this.handleSubmit(e)}>
+        <button name='submit' onClick={e => this.handleSubmit(e)}>
           Shorten Please!
         </button>
       </form>
@@ -71,3 +72,7 @@ class UrlForm extends Component {
 }
 
 export default UrlForm;
+
+UrlForm.propTypes = {
+  props: PropTypes.objectOf(PropTypes.func)
+}
