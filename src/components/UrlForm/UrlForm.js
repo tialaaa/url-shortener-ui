@@ -18,6 +18,7 @@ class UrlForm extends Component {
     e.preventDefault();
 
     if (!this.validateInputs()) {
+      // refactor to something more user-friendly than an alert
       return alert('Please fill out all form inputs') 
     };
 
