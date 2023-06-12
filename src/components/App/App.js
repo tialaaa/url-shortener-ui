@@ -25,10 +25,7 @@ export class App extends Component {
         getUrls()
           .then(data => this.setState({ urls: data.urls }))
       })
-      .catch(err => {
-        console.log(err)
-        this.setState({ error: [...this.state.error, err]})
-      })
+      .catch(err => this.setState({ error: [...this.state.error, err]}))
   }
 
   render() {
