@@ -7,7 +7,7 @@ describe('Homepage and Form user flows', () => {
     cy.visit('http://localhost:3000/')
   })
 
-  it.skip('When a user visits the page, they can view the page title and the existing shortened URLs', () => {
+  it('When a user visits the page, they can view the page title and the existing shortened URLs', () => {
     cy.get('header').contains('h1', 'URL Shortener')
     cy.get('.urlContainer').children().should('have.length', 2)
       .get('.url').first().contains('h3', 'Awesome photo')
@@ -18,14 +18,14 @@ describe('Homepage and Form user flows', () => {
       .get('.url').last().contains('p', 'https://github.com/tialaaa/url-shortener-ui')
   })
 
-  it.skip('When a user visits the page, they can view the Form with the proper inputs', () => {
+  it('When a user visits the page, they can view the Form with the proper inputs', () => {
     cy.get('form').children().should('have.length', 3)
     cy.get("input[name='title']").should('have.value', '')
     cy.get("input[name='urlToShorten']").should('have.value', '')
     cy.get('button').should('have.text', 'Shorten Please!')
   })
 
-  it.skip('When a user fills out the form, the information is reflected in the input fields', () => {
+  it('When a user fills out the form, the information is reflected in the input fields', () => {
     cy.get("input[name='title']").type('Another one').should('have.value', 'Another one')
     cy.get("input[name='urlToShorten']").type('https://docs.cypress.io/api/commands').should('have.value', 'https://docs.cypress.io/api/commands')
   })
@@ -50,9 +50,5 @@ describe('Homepage and Form user flows', () => {
       .get('.url').last().contains('h3', 'Another one')
       .get('.url > a').last().should('have.attr', 'href', 'http://localhost:3001/useshorturl/3')
       .get('.url').last().contains('p', 'https://docs.cypress.io/api/commands')
-  })
-
-  it.skip('', () => {
-    
   })
 })
