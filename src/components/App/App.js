@@ -15,10 +15,7 @@ export class App extends Component {
 
   componentDidMount() {
     getUrls()
-      .then(data => {
-        this.setState({ urls: data.urls })
-        console.log(this.state)
-      })
+      .then(data => this.setState({ urls: data.urls }))
       .catch(err => console.log(err))
   }
 
@@ -26,10 +23,7 @@ export class App extends Component {
     postUrls(newUrl)
       .then(() => {
         getUrls()
-          .then(data => {
-            console.log(data)
-            this.setState({ urls: data.urls })
-          })
+          .then(data => this.setState({ urls: data.urls }))
       })
       .catch(err => {
         console.log(err)
