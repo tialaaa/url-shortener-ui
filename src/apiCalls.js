@@ -12,9 +12,12 @@ export const postUrls = (formInput) => {
     }
   })
   .then(response => {
-    response.json();
-    console.log(response)
+    console.log(response);
+
+    if (!response.ok) {
+      throw new Error(response.message)
+    } else {
+      return response.json();
+    }
   })
 }
-
-// {long_url: <String>, title: <String>}
